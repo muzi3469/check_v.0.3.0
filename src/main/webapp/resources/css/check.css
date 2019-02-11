@@ -1,0 +1,954 @@
+/*board main*/
+html, body{
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    height: 100%;
+}
+body::-webkit-scrollbar{width: 10px;}
+body::-webkit-scrollbar-track {background-color:#006633;}
+body::-webkit-scrollbar-thumb {background-color:#c6e0be;border-radius: 10px;}
+body::-webkit-scrollbar-thumb:hover {background: #555;}
+body::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
+  width:16px;height:16px;background:#006633;border-radius: 3px;
+}
+#header{
+  position: sticky;
+  height: 80.34px;
+  z-index: 1000;
+}
+#header-center{
+  background-color: #006633;
+  width: 100%;
+  top: 0; left: 0;
+  position: fixed;
+}
+.check-home-via-logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.check-img{
+  width: 150px;
+  color: white;
+}
+.check-img:hover{
+  cursor: pointer;
+}
+
+#menu{
+  position: sticky;
+  height: 48px;
+  width: 100%;
+  z-index: 1000;
+}
+.board-menu-title{
+  width: 100%;
+  top: 80px; left: 0;
+  position: fixed;
+}
+
+.board-menu-title > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.board-menu-title > ul > li {
+  float: right;
+}
+
+.board-menu-title > ul > li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.board-menu-title > ul > li a{
+  text-decoration: none;
+}
+
+.board-menu-title > ul > li a:hover:not(.board-title) {
+  background-color: #111;
+}
+
+.board-title{
+    background-color: #4CAF50;
+}
+
+#content{
+  min-height: 78%;
+  max-height: 100%;
+  min-width: 100%;
+  width: 100%;
+  z-index: 0;
+  position: absolute;
+  top: 130px; padding: 15px;
+  /* overflow-x: scroll; */
+  /* overflow-y: hidden; */
+}
+
+.board-wrapper, .chat-wrapper, .calendar-wrapper{
+  /* position: relative; */
+  height: 95%; width: 100%;
+  position: absolute;
+}
+.chat-wrapper, .calendar-wrapper{
+  margin-top: 30px;
+}
+
+#board {
+  margin: 10px;
+  height: 60%;
+  /* border: solid 3px red; */
+}
+.board-canvas{
+  display: inline-block;
+  width: 100%;
+  min-height: 90%;
+}
+.check-list{
+  height: auto;
+}
+.check-list-cards-container{
+  min-height: 10px;
+}
+/*
+display: inline-block;
+border: solid 3px red; */
+
+.check-list-wrapper{
+  position: absolute;
+  width: 230px; height: 100%;
+}
+.check-add-list{
+  /* margin-left: 15px; */
+}
+
+.list-wrapper{
+  width: 230px !important;
+  position: absolute;
+  border-radius: 4px;
+  padding: 7px;
+  background-color: #c6e0be;
+  /* border: solid 3px blue; */
+  height: auto;
+  box-shadow: 1px 1px 5px 0 black;
+}
+.mod-add{
+  background-color: #006633;
+  /* margin-left: 30px; */
+}
+.mod-add:hover{
+  background-color: #003300;
+  cursor: pointer;
+}
+
+.placeholder{
+  color: white;
+}
+.placeholder::before {
+  font-weight: bold;
+  content: " + ";
+}
+.check-add-another-card{
+  color: #889684;
+}
+.check-add-another-card::before{
+  font-weight: bold;
+  content: " + ";
+}
+.list-add-controls, .cc-controls{
+  padding-top: 5px;
+}
+.check-cancel-edit::before{
+  content: " X "; font-weight: bold; font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+.check-list-name-assist{
+  font-size: 18px; font-weight: bold; color: black;
+  text-decoration: none; cursor: pointer;
+}
+.check-open-card-composer-container{
+  height: 30px; width: 100%; padding-top: 5px;
+}
+.check-open-card-composer-container:hover{
+  text-decoration: none; cursor: pointer;
+}
+.check-list-header:hover{
+  cursor: pointer;
+}
+.check-list-content{
+  padding: 2px;
+}
+.list-card{
+  background-color: white; margin-top: 5px; margin-bottom: 5px;
+  padding: 5px; border-radius: 3px;
+	box-shadow: 1px 1px 5px 0 gray; cursor: pointer;
+}
+.check-card-title{
+  border: 0;
+  outline: none;
+}
+
+.check-icon{
+  float: right; padding-top: 3px;
+  color: cadetblue;
+}
+.check-icon:hover{
+  color: #0e665f;
+}
+
+
+/* --------------- Chat.jsp ------------*/
+
+.chat-wrapper{
+  margin-top: 20px;
+}
+.chat-content{
+}
+.chat-container{
+  width: 100%;
+}
+
+#messages {
+	overflow-y: auto;
+	height: 500px;
+	font-family: Georgia, "Malgun Gothic", serif;
+  background-color: lavender;
+  opacity: 0.9;
+  border-radius: 5px;
+  padding-top: 20px;
+}
+
+/*file drag and drop*/
+#dropzone {
+	border: 2px dotted #3292A2;
+	width: 50px; height: 500px;
+	color: #92AAB0;
+	text-align: center;
+	font-size: 24px;
+	padding-top: 12px;
+	margin-top: 10px;
+}
+
+/* General CSS Setup */
+
+/* container */
+.container {
+	padding: 5% 5%;
+}
+
+/* CSS talk bubble */
+.talk-bubble-container{
+  width: 100%;
+  min-height: 50px;
+  height: auto;
+}
+
+.talk-bubble {
+	margin-left: 10px; margin-right: 10px;
+  margin-top: 5px; margin-bottom: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+	display: inline-block;
+	position: relative;
+	width: 200px;
+	height: auto;
+  border-radius: 10px;
+}
+.talk-left{
+  background-color: limegreen;
+}
+.talk-right{
+  background-color: sandybrown;
+	float: right; margin-left: 60%;
+}
+
+.border {
+	border: 8px solid #666;
+}
+
+/* .round {
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+} */
+
+/* Right triangle placed top left flush. */
+.tri-right.border.left-top:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -40px;
+	right: auto;
+	top: -8px;
+	bottom: auto;
+	border: 32px solid;
+	border-color: #666 transparent transparent transparent;
+}
+
+.tri-right.left-top:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -20px;
+	right: auto;
+	top: 0px;
+	bottom: auto;
+	border: 22px solid;
+	border-color: white transparent transparent transparent;
+}
+
+/* Right triangle, left side slightly down */
+.tri-right.border.left-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -40px;
+	right: auto;
+	top: 30px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: #666 #666 transparent transparent;
+}
+
+.tri-right.left-in:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -20px;
+	right: auto;
+	top: 38px;
+	bottom: auto;
+	border: 12px solid;
+	border-color: white white transparent transparent;
+}
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -8px;
+	right: auto;
+	top: auto;
+	bottom: -40px;
+	border: 32px solid;
+	border-color: transparent transparent transparent #666;
+}
+
+.tri-right.btm-left:after {
+	/* content: ' '; */
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 0px;
+	right: auto;
+	top: auto;
+	bottom: -20px;
+	border: 22px solid;
+	border-color: transparent transparent transparent white;
+}
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 30px;
+	right: auto;
+	top: auto;
+	bottom: -40px;
+	border: 20px solid;
+	border-color: #666 transparent transparent #666;
+}
+
+.tri-right.btm-left-in:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 38px;
+	right: auto;
+	top: auto;
+	bottom: -20px;
+	border: 12px solid;
+	border-color: white transparent transparent white;
+}
+
+/*Right triangle, placed bottom right side slightly in*/
+.tri-right.border.btm-right-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: auto;
+	right: 30px;
+	bottom: -40px;
+	border: 20px solid;
+	border-color: #666 #666 transparent transparent;
+}
+
+.tri-right.btm-right-in:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: auto;
+	right: 38px;
+	bottom: -20px;
+	border: 12px solid;
+	border-color: white white transparent transparent;
+}
+/*
+	left: -8px;
+  right: auto;
+  top: auto;
+	bottom: -40px;
+	border: 32px solid;
+	border-color: transparent transparent transparent #666;
+	left: 0px;
+  right: auto;
+  top: auto;
+	bottom: -20px;
+	border: 22px solid;
+	border-color: transparent transparent transparent lightyellow;
+
+/*Right triangle, placed bottom right side slightly in*/
+.tri-right.border.btm-right:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: auto;
+	right: -8px;
+	bottom: -40px;
+	border: 20px solid;
+	border-color: #666 #666 transparent transparent;
+}
+
+.tri-right.btm-right:after {
+	/* content: ' '; */
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: auto;
+	right: 0px;
+	bottom: -20px;
+	border: 12px solid;
+	border-color: lightyellow lightyellow transparent transparent;
+}
+
+/* Right triangle, right side slightly down*/
+.tri-right.border.right-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: auto;
+	right: -40px;
+	top: 30px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: #666 transparent transparent #666;
+}
+
+.tri-right.right-in:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: auto;
+	right: -20px;
+	top: 10px;
+	bottom: auto;
+	border: 12px solid;
+	border-color: whitetransparent transparent lightyellow;
+}
+
+/* Right triangle placed top right flush. */
+.tri-right.border.right-top:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: auto;
+	right: -40px;
+	top: -8px;
+	bottom: auto;
+	border: 32px solid;
+	border-color: #666 transparent transparent transparent;
+}
+
+.tri-right.right-top:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: auto;
+	right: -20px;
+	top: 0px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: lightyellow transparent transparent transparent;
+}
+
+/* talk bubble contents */
+.talktext {
+	padding: 1em;
+	text-align: left;
+	line-height: 1.5em;
+}
+
+.talktext2 {
+	padding: 1em;
+	text-align: right;
+	line-height: 1.5em;
+}
+
+/*------------------Calendar_view-----------------------*/
+.fc-sun {
+	color: #ef3232;
+	/* 湲��뵪�깋 */
+	/*  <!-- 媛곸뭏�쓽 �깋--> */
+}
+.fc-sat {
+	color: #5694f7;
+}
+/*�븘留� �쟻�슜 �븞�맆 寃껋엫.*/
+.holiday {
+	color: #ef3232;
+}
+
+.calendar-wrapper{
+  margin-top: 30px;
+  height: 564px;
+  overflow: hidden;
+}
+.calendar-container{
+  position: relative;
+    width: 650px;
+
+}
+.calendar-view-container{
+    position: relative;
+    background-color: white;
+    border-radius: 15px;
+    opacity: 0.9;
+    width: 325px;
+    height: 531px;
+    top: -532px;
+    left: 450px;
+}
+.check-calendar-content{
+   position: relative;
+    background-color: white;
+  border-radius: 15px;
+  opacity: 0.9;
+  width: 500px;
+  height: 531px;
+}
+.check-calendar-content-view{
+    position: relative;
+    width: 325px;
+    height: 536px;
+    /* border: solid 3px #354832; */
+}
+.check-calendar-other-content{
+  margin-bottom: 20px;
+}
+.check-calendar-other-content > button{
+  margin-left: 10px; margin-right: 10px;
+}
+
+.check-calendar-other-view{
+    position: relative;
+    /* border:solid 3px green; */
+    width :162.5px;
+    height: 106px;
+    left: -80px;
+    top: 0px;
+    padding: 10px 30px 30px 30px;
+}
+.check-calendar-main-view{
+    position: relative;
+    /* border: solid 3px blue; */
+    width :162.5px;
+    height: 108px;
+    left: 80px;
+    top: -105px;
+    padding: 10px 30px 30px 30px;
+}
+.check-calendar-content-view-name{
+    /* border: solid 3px black; */
+    height: 60px;
+    padding: 16px 0 0 0;
+}
+.check-calendar-button-box{
+  position: relative;
+  /* border: solid 3px gold; */
+  top: -15%;
+  height: 133px;
+}
+.check-calendar-button-delete{
+    position: relative;
+    /* border :solid 3px #c6e0be; */
+    width: 156.5px;
+    height: 60px;
+    left:-25%;
+    top: -10%;
+    align-content: center;
+    padding: 18px 0 0 0;
+}
+.check-calendar-button-modify{
+    position: relative;
+    /* border :solid 3px #006633; */
+    width: 156.5px;
+    height: 64px;
+    top: -113%;
+    right: -25%;
+    align-content: center;
+    padding: 24px 0 0 0;
+}
+
+.check-caldendar-descrption-box{
+	 position: relative;
+	 /* border: solid 3px #43ca15; */
+	 background-color: #eef9ca;
+	 width: 319.5px;
+	 height: 187px;
+	 top: -17%;
+	 right: 0%;
+	 align-content: center;
+	 padding: 10px 0 0 0;
+}
+.descrption-textarea{
+	 position: relative;
+	 width: 285.5px;
+	 height: 117px;
+	 top: -2px;
+	 padding: 20px 0 0 0;
+	 resize: none;
+}
+.check-calendar-button-delete-btn{
+	        color:white;
+	        background-color: green;/* #8bc13c */
+	        -webkit-box-shadow: 0 3px rgba(20,0,12,.09);
+	        -moz-box-shadow: 0 3px rgba(20,0,12,.09);
+	        box-shadow: 0 3px rgba(20,0,12,.09);
+	        transition: all 0.1s linear 0s;
+	        width:130px;
+	        /* height: 100px; */
+}
+.check-calendar-button-modify-btn{
+	        color:white;
+	        width:130px;
+     background-color: green;/* #8bc13c */
+      -webkit-box-shadow: 0 3px rgba(20,0,12,.09);
+  -moz-box-shadow: 0 3px rgba(20,0,12,.09);
+  box-shadow: 0 3px rgba(20,0,12,.09);
+  transition: all 0.1s linear 0s;
+}
+textarea.form-control {
+    height: 119px;
+}
+.calendar-input-title{
+	width:122px;
+	align-content: center;
+}
+.check-calendar-button-create{
+	position: relative;
+	width:130px;
+	top: 18px;
+	left: -76px;
+	height: 53px;
+}
+.check-calendar-button-ok{
+	position: relative;
+	width:130px;
+	top: -71%;
+	left: -76px;
+}
+.check-calendar-button-delete{
+	position: relative;
+	width:130px;
+	top: -53px;
+	/* right: 27px; */
+	left: 78px;
+}
+.check-calendar-button-modify{
+	position: relative;
+	width:130px;
+	top: -54px;
+	left: 79px;
+}
+.descrption-a{
+	position: relative;
+	width:300px;
+	height:10px;
+	font-size: 22px;
+
+}
+.check-calendar-content-view-smalltitle{
+	font-family: cursive;
+	font-size: 20px;
+	color: black;
+}
+
+/*----------------Login_view--------------------*/
+.login-outline{
+
+    border:solid 3px black;
+    height: 300px;
+    width: 300px;
+    left: 500px;
+}
+
+#login-content{
+  min-height: 100%;
+  height: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  width: 500px;
+  max-width: 100%;
+  top:200px;
+
+  /* overflow-x: scroll; */
+  /* overflow-y: hidden; */
+}
+.login-wrapper{
+  position: absolute;
+  top: 120px;
+     width: 500px;
+  height: 600px;
+  left:  50%;
+  margin-left: -250px;
+
+}
+.login-canvas{
+  display: inline-block;
+  width: 500px;
+  height: 500px;
+  border: solid 3px white; /*#165401*/
+    border-radius: 70px;
+    box-shadow: 0 0 30px 10px rgba(0,0,0,0.3);
+}
+.id-pwd-wrapper{
+    border: solid 3px white;
+    background-color: white;
+    width:425px;
+    height: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-radius: 100px;
+    box-shadow: 0 0 30px 10px rgba(0,0,0,0.3);
+    padding-top: 20px;
+
+}
+.login-ment{
+    position: absolute;
+    margin-left: 80px;
+    width: 150px;
+    height: 100px;
+    margin-top:10px;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: green;
+}
+.login-img{
+    position: absolute;
+    margin-left: 280px;
+    width: 100px;
+    height: 100px;
+    margin-top:20px;
+}
+.login-id-input{
+    position: absolute;
+    margin-top: 130px;
+    margin-left: 80px;
+}
+.login-pwd-input{
+    position: absolute;
+    margin-top: 180px;
+    margin-left: 80px;
+
+}
+.login-login-div{
+    position: absolute;
+     margin-top: 230px;
+    margin-left: 240px;
+
+}
+.login-login-btn{
+        color:white;
+     background-color: green;/* #8bc13c */
+      -webkit-box-shadow: 0 3px rgba(20,0,12,.09);
+  -moz-box-shadow: 0 3px rgba(20,0,12,.09);
+  box-shadow: 0 3px rgba(20,0,12,.09);
+  transition: all 0.1s linear 0s;
+}
+.login-signup-href{
+    position: absolute;
+     margin-top: 280px;
+    margin-left: 80px;
+    font-size: 15px;
+}
+.login-id-input-text{
+    width: 230px;
+    height: 30px;
+    box-shadow: 0 0 3px 2px rgba(0,0,0,0.3);
+}
+.login-pwd-input-password{
+    width: 230px;
+    height: 30px;
+    box-shadow: 0 0 3px 2px rgba(0,0,0,0.3);
+}
+.login-checkbox{
+      position: absolute;
+     margin-top: 240px;
+    margin-left: 80px;
+
+}
+.login-checkbox:hover{
+  cursor: pointer;
+}
+/*----------------------------------------------------------*/
+a.button {
+	font-size: 14px;
+	font-weight: 600;
+	color: white;
+	padding: 6px 25px 0px 20px;
+	display: inline-block;
+	text-decoration: none;
+	width: 80px;
+	height: 30px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #6fa028;
+	-webkit-box-shadow: 0 3px rgba(20, 0, 12, .09);
+	-moz-box-shadow: 0 3px rgba(20, 0, 12, .09);
+	box-shadow: 0 3px rgba(20, 0, 12, .09);
+	transition: all 0.1s linear 0s;
+	top: 0px;
+	position: relative;
+}
+
+a.button:hover {
+	background-color: #2f8b2e;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+  text-decoration: none; cursor: pointer;
+}
+
+.box {
+	margin: 100px auto;
+	width: 300px;
+	height: 50px;
+}
+
+.container-3 {
+	width: 300px;
+	vertical-align: middle;
+	white-space: nowrap;
+	position: relative;
+}
+
+.container-3 input#search {
+	width: 300px;
+	height: 50px;
+	background: #2b303b;
+	border: none;
+	font-size: 10pt;
+	float: left;
+	color: #262626;
+	padding-left: 45px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #fff;
+}
+
+.container-3 input#search::-webkit-input-placeholder {
+	color: #65737e;
+}
+
+.container-3 input#search:-moz-placeholder { /* Firefox 18- */
+	color: #65737e;
+}
+
+.container-3 input#search::-moz-placeholder { /* Firefox 19+ */
+	color: #65737e;
+}
+
+.container-3 input#search:-ms-input-placeholder {
+	color: #65737e;
+}
+
+.container-3 .icon {
+	position: absolute;
+	top: 50%;
+	margin-left: 17px;
+	margin-top: 17px;
+	z-index: 1;
+	color: #4f5b66;
+	-webkit-transition: all .55s ease;
+	-moz-transition: all .55s ease;
+	-ms-transition: all .55s ease;
+	-o-transition: all .55s ease;
+	transition: all .55s ease;
+}
+
+.container-3 input#search:focus, .container-3 input#search:active {
+	outline: none;
+}
+
+.container-3:hover .icon {
+	margin-top: 16px;
+	color: #93a2ad;
+	-webkit-transform: scale(1.5); /* Safari and Chrome */
+	-moz-transform: scale(1.5); /* Firefox */
+	-ms-transform: scale(1.5); /* IE 9 */
+	-o-transform: scale(1.5); /* Opera */
+	transform: scale(1.5);
+}
+.check-invite-container{
+  position: absolute;
+  margin-left: 300px; margin-top: 3px;
+  z-index: 1000;
+}
+.check-invite-list-menu{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------- */

@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/*--------------------------home_view-----------------------------*/
+
+.home-container{
+  margin-top: 25px; height: 100%;
+}
+.sticky-home-menu{
+  position: sticky; width: 220px; height: 100%;
+  float: left;
+}
+.all-boards{
+  margin-left: 270px;
+}
+.sidenav{
+  height: 100%;
+  position: fixed; z-index: 1000; top: 105px; left: 0;
+  padding-top: 20px;
+  /* border: solid 1px blue; */
+}
+.sidenav a{
+  padding: 6px 8px 6px 16px;
+  margin-top: 2px; margin-bottom: 2px;
+  border-radius: 5px;
+  text-decoration: none; font-size: 16.5px;
+  display: block;
+  color: black;
+}
+.sidenav a.divide-team-line{
+  /*크기랑 색 적용이 안됨 뭐지.*/
+  opacity: 0.7;
+  margin-left: 10%;
+}
+hr.sidenav-hr-line{
+  border: 1px dashed #c6e0be;
+  margin-top: 2.5px; margin-bottom: 2.5px;
+}
+.sidenav > a:hover:not(.sidenav-home, .divide-team-line){
+  background-color: #c9d3c6;
+}
+.sidenav-home{
+  background-color: #c6e0be;
+}
+.create-team-input-container{
+  padding-left: 8px; padding-right: 5px;
+}
+.create-team-input{
+  margin-top: 25px; margin-bottom: 25px;
+}
+a.home-logout{
+  text-align: right; padding: 4px;
+  cursor: pointer; color: #a5a5a5; font-weight: bold;
+  text-decoration: none; margin-left: 70%;
+}
+
+.board-page-board-section-list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.board-page-board-section-list-item {
+
+}
+.board-page-board-section-list-item{
+  width: 175px !important;
+  position: relative;
+  border-radius: 10px;
+  padding: 7px;
+  background-color: #006633;
+  /* border: solid 3px blue; */
+  height: 95px;;
+  box-shadow: 1px 1px 5px 0 black;
+  display: inline-flex;
+  margin-top: 5px; margin-bottom: 5px;
+  margin-left: 4px;margin-right: 4px;
+}
+.board-page-board-section-list-item:hover{
+  background-color: #003300;
+  cursor: pointer;
+}
+.board-section-list-item-container{
+    height: 80px; width: 100%;
+}
+.board-title-details-name {
+  text-decoration: none;
+  color: white; font-size: 15px;
+  margin: 3px;
+}
+.board-mod-add-item {
+  background-color: #b2b2b2;
+}
+.board-mod-add-item:hover{
+  background-color: #a5a5a5;
+  cursor: pointer;
+}
+.bold-item{
+  color: #666666; font-size: 14px;
+}
+.board-title-mod-add, .board-title-item, .bold{
+  width: 100%; height: 100%;
+}
+
+/* .window-overlay{
+  opacity: 0.75; width: 100%; height: 100%;
+  position: fixed;
+}
+.window{
+  margin-top: 50px; margin-bottom: 150px;
+  display: block;
+}
+.window-wrapper{
+  width: 300px !important;
+  padding: 7px;
+}
+.unstyled-button{
+  opacity: 0.0;
+  background-color: white;
+}
+.unstyled-button:hover{
+  opacity: 0.1;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------------------------*/
